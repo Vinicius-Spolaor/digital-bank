@@ -66,7 +66,7 @@ public class BankTransactionServiceTest {
         BankTransaction bt = BankTransaction.builder().id(1L).amount(request.getAmount()).build();
         when(customerRepository.findByIdWithLock(1L)).thenReturn(Optional.of(origin));
         when(customerRepository.findByIdWithLock(2L)).thenReturn(Optional.of(destination));
-        when(bankTransactionRepository.save(any())).thenReturn(bt);
+        when(bankTransactionRepository.saveAndFlush(any())).thenReturn(bt);
 
         // Act
         var response = bankTransactionService.process(request);
@@ -78,7 +78,7 @@ public class BankTransactionServiceTest {
         assertEquals(new BigDecimal("200.00"), response.getAmount());
 
         verify(customerRepository, times(2)).save(any(Customer.class));
-        verify(bankTransactionRepository, times(1)).save(any());
+        verify(bankTransactionRepository, times(1)).saveAndFlush(any());
         verify(notificationService, times(1)).sendTransactionNotification(any());
     }
 

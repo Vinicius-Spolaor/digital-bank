@@ -45,6 +45,7 @@ A Spring Boot–based backend application that simulates a digital banking syste
 * **Lombok**
 * **Swagger / OpenAPI**
 * **Maven**
+* **Docker + Docker Compose**
 
 ---
 
@@ -54,6 +55,7 @@ A Spring Boot–based backend application that simulates a digital banking syste
 
 * Java 21 installed
 * Maven installed
+* Docker + Docker Compose installed
 
 ### Steps
 
@@ -70,13 +72,19 @@ A Spring Boot–based backend application that simulates a digital banking syste
    mvn clean install
    ```
 
-3. **Run the application**
+3. **Run docker compose**
+
+   ```bash
+   docker compose up -d
+   ```
+
+4. **Run the application**
 
    ```bash
    mvn spring-boot:run
    ```
 
-4. **Access the API documentation**
+5. **Access the API documentation**
 
    ```
    http://localhost:8080/digital-bank/swagger-ui.html
@@ -97,9 +105,3 @@ The application exposes its endpoints via **Swagger UI**, allowing easy testing 
 * The application is designed to handle high-concurrency scenarios.
 * Notifications are processed asynchronously to avoid impacting transaction performance.
 * Database integrity is enforced via foreign keys and transactional boundaries.
-
----
-
-## ✅ Status
-
-✔️ Production-ready backend application following Java and Spring Boot best practices.

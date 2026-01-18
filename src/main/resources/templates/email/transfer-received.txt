@@ -1,0 +1,25 @@
+Transfer Received!
+
+Hello ${recipientName},
+
+You have received a transfer of $${amount} from ${senderName}.
+
+Transaction Details:
+- Transaction ID: ${transactionId}
+- Date: ${date}
+- Amount: $${amount}
+
+The amount has been credited to your account and is available for use immediately.
+
+View your transaction here: ${transactionLink}
+
+If you have any questions about this transfer, please contact our support team.
+
+Best regards,
+The Digital Bank Team
+
+---
+This email was sent by Digital Bank.
+123 Finance Street, Financial District
+Need help? Contact us at support@digitalbank.com
+© ${currentYear} Digital Bank. All rights reserved.

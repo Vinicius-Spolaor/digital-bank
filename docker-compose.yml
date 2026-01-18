@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: digitalbank-mailhog
+    ports:
+      - "1025:1025"  # SMTP server
+      - "8025:8025"  # Web UI
+    networks:
+      - digitalbank-network
+
+  app:
+    build: .
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - SMTP_HOST=mailhog
+      - SMTP_PORT=1025
+    depends_on:
+      - mailhog
+    networks:
+      - digitalbank-network
+
+networks:
+  digitalbank-network:
+    driver: bridge
